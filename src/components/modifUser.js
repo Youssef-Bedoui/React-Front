@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import AddUser from "./addUser";
 
 
-function ModifUser(props) {
+
+function ModifUser({ url }) {
 
     const [user, setUser] = useState({
         name: "",
@@ -12,49 +14,44 @@ function ModifUser(props) {
     });
 
     const { name, email, password } = user;
-
     let navigate = useNavigate();
 
+    let { id } = useParams();
+
+
+    React.useEffect(() => {
+        axios.get(`${url}/${id}`).then((response) => {
+            let updatedUser = {
+                name: response.data.name,
+                email: response.data.email,
+                password: response.data.password
+            }
+            setUser((prevState) => { return { ...prevState, ...updatedUser } });
+
+        });
+    }, []);
+
+
     const handleClick = (event) => {
-
         event.preventDefault();
+        console.log(user)
+        axios.put(`${url}/${id}`, user)
 
-        axios.put(props.url + "/:id", { name, email, password })
-            .then((response) => {
-                console.log("User Modified Successfully");
-
-                navigate("/");
-            })
+        .then((response) => { console.log(response) });
     }
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setUser((prevState) => ({
             ...prevState,
             [name]: value,
-
+        
         }));
-
+       console.log(name,value)
     }
 
     return (
-        <form id="form">
-            <h2>Modif User</h2>
-            <div id="container">
-                <label>Name : </label>
-                <input type="text" defaultValue={name} name="name" onChange={handleInputChange}></input>
-            </div>
-            <div id="container">
-                <label>Email : </label>
-                <input type="email" defaultValue={email} name="email" onChange={handleInputChange}></input>
-            </div>
-            <div id="container">
-                <label>Password : </label>
-                <input type="password" defaultValue={password} name="password" onChange={handleInputChange}></input>
-            </div>
 
-            <button onClick={handleClick}>Modify User</button>
-
-        </form>
+        <AddUser usertoUpdate={user}/>
 
     )
 }

@@ -3,10 +3,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 
-function AddUser(props) {
+function AddUser({url,handleCreate,usertoUpdate}) {
 
     const [user, setUser] = useState({
-        name: "",
+        name: usertoUpdate ? usertoUpdate.name : "",
         email: "",
         password: ""
     });
@@ -17,19 +17,13 @@ function AddUser(props) {
     // const [password, setPassword] = useState("");
 
     let navigate = useNavigate();
+    
 
     const handleClick = (event) => {
 
         event.preventDefault();
 
-        axios.post(props.url, { name, email, password })
-            .then((response) => {
-
-                console.log("User Added Successfully");
-
-                navigate("/");
-
-            })
+        
     }
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -47,7 +41,7 @@ function AddUser(props) {
                 <h2>Add New User</h2>
                 <div id="container">
                     <label>Name : </label>
-                    <input type="text" name="name" onChange={handleInputChange}></input>
+                    <input defaultValue={name} type="text" name="name" onChange={handleInputChange}></input>
                 </div>
                 <div id="container">
                     <label>Email : </label>
@@ -58,7 +52,7 @@ function AddUser(props) {
                     <input type="password" name="password" onChange={handleInputChange}></input>
                 </div>
 
-                <button onClick={handleClick}>Add User</button>
+                <button onClick={(e)=>handleCreate(user,e)}>Add User</button>
 
             </form>
         </div>
