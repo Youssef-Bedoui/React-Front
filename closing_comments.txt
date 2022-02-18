@@ -1,0 +1,17 @@
+Q: On a scale of 1 to 10, how well rested and mentally ready were you when you began your work today?
+A:
+
+Q: How do you feel about your work today?
+A:
+
+Q: What aspect of your work today are you most proud of?
+A:
+
+Q: What extenuating circumstances did you experience that impeded your work, if any? (e.g., your computer froze, and it took you an hour to fix)
+A:
+
+Q: Which parts of the prompt do you feel uncertain about how well you did, if any?
+A:
+
+Q: What aspects do you know you need extra support with, if any?
+A:

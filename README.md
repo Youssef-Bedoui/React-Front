@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# The Technical Assessment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ready to put your skills to the test and have some full-stack hacking fun? This assessment is like a day long solo sprint where you get to build a full stack JavaScript application using the skills and technologies you've worked with during the first half of the course. Expect to reinforce concepts and techniques you are familiar with and also to learn some new content.
 
-## Available Scripts
+## Before Starting
 
-In the project directory, you can run:
+1. Confirm that all communication applications and tools are turned off, closed, put away
+1. Fork this repo and clone it. Do not push your work any time during this assessment.
+1. Follow [these instructions](./RECORDING.md) to start recording your screen.
 
-### `npm start`
+## Guidelines
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+You must manage your time effectively to complete this assessment. This assessment will be evaluated as if it was a coding challenge given to you as part of a job application process. Not only will the functionality of your code be important, but also, the professionalism with which you write it. Consider the style and organization of your code. Make frequent commits with informative and consistent commit messages. Be professional and informative with your comments.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Each directory contains a prompt with work for you to complete, with instructions defined in their own README.
 
-### `npm test`
+## Available resources
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The ultimate goal of this assessment is to give you an opportunity to demonstrate your abilities as an engineer. Avoid anything that will obscure our ability and your ability to see your best efforts at work will undermine that goal.
 
-### `npm run build`
+* You **may not** use a scaffolding tool (e.g. Yeoman) or starter repos unless specifically allowed in a prompt's README
+* You **may not** use any resources created at Hack Reactor by yourself, other students, or staff members
+  * e.g. lectures, sprints, MVP, past assessments, side projects, notes, mentor assignments, etc.
+* You **may** only use online resources specifically allowed in a prompt's README
+* You **may not** copy and paste from available online resources
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Submitting Your Work
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Your work will be submitted with the `submit.sh` script located in the root directory of this repo. At 3:30 (or beforehand if you finish early):
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Make a final commit
+1. Stop recording your screen and save your video file locally as `firstname-lastname-yyyymmdd`  
+    - NOTE: While the video is saving, proceed with the next steps.
+1. Collect a USB flash drive from your proctor, if using a pairing station, request assistance setting up the flash drive.
+1. Fill out the "How to start this app" section in the problem's `README.md` file if it's not done already
+1. Fill out the `closing_comments.txt` file.
+1. Commit the changes to `closing_comments.txt` and `README.md`.  
+    - NOTE: This commit should only contain changes to these two files - no other changes are allowed
+1. Run the script `bash submit.sh` to submit your code.  
+    - NOTE: You don't have to wait for your video to stop saving before running this script.
+1. Copy your local screen recording video to the USB flash drive your proctor provided.
+1. When the screen recording video has finished copying to the flash drive, return it to a proctor.
