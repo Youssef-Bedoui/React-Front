@@ -1,17 +1,11 @@
-import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function UserList({users,handleRemoveUser,url}) {
+function UserList({users,handleRemoveUser}) {
 
     let navigate = useNavigate();
 
-    const handleModify = (userId) => {
-
-
-
-        
-    }
+   
 
     return (
         <div>

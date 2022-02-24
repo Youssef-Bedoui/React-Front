@@ -41,6 +41,24 @@ function App() {
       })
   }
 
+  const handleModifClick = (event, user, id) => {
+    event.preventDefault();
+    axios.put(`${baseUrl}/${id}`, user)
+      .then((response) => { console.log(response) });
+
+    console.log(baseUrl)
+    console.log(id);
+
+    let updatedUser = users.filter(user => user._id === id);
+    
+    updatedUser =user;
+    
+    console.log(updatedUser)
+    setUsers([...users, updatedUser]);
+
+    navigate("/");
+  }
+
   React.useEffect(() => {
     axios.get(baseUrl).then((response) => { setUsers(response.data) })
   }, []);
@@ -53,7 +71,7 @@ function App() {
       <Routes>
         <Route path="/" element={<UserList url={baseUrl} users={users} handleRemoveUser={handleRemoveUser} />} />
         <Route path="/add" element={<AddUser url={baseUrl} handleCreate={handleCreate} />} />
-        <Route path="/modif/:id" element={<ModifUser url={baseUrl} />} />
+        <Route path="/modif/:id" element={<ModifUser url={baseUrl} handleModifClick={handleModifClick} />} />
       </Routes>
     </div>
   );

@@ -1,30 +1,22 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 
-function AddUser({url,handleCreate,usertoUpdate}) {
+function AddUser({ url, handleCreate, usertoUpdate, id ,handleModifClick}) {
+    console.log(usertoUpdate);
 
     const [user, setUser] = useState({
         name: usertoUpdate ? usertoUpdate.name : "",
-        email: "",
-        password: ""
+        email: usertoUpdate ? usertoUpdate.email : "",
+        password: usertoUpdate ? usertoUpdate.password : ""
     });
     const { name, email, password } = user;
+    console.log( usertoUpdate ? usertoUpdate.name : "")
 
     // const [name, setName] = useState("");
     // const [email, setEmail] = useState("");
     // const [password, setPassword] = useState("");
 
-    let navigate = useNavigate();
-    
-
-    const handleClick = (event) => {
-
-        event.preventDefault();
-
-        
-    }
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setUser((prevState) => ({
@@ -35,6 +27,7 @@ function AddUser({url,handleCreate,usertoUpdate}) {
 
     }
 
+    
     return (
         <div>
             <form id="form">
@@ -45,15 +38,14 @@ function AddUser({url,handleCreate,usertoUpdate}) {
                 </div>
                 <div id="container">
                     <label>Email : </label>
-                    <input type="email" name="email" onChange={handleInputChange}></input>
+                    <input defaultValue={email} type="email" name="email" onChange={handleInputChange}></input>
                 </div>
                 <div id="container">
                     <label>Password : </label>
-                    <input type="password" name="password" onChange={handleInputChange}></input>
+                    <input defaultValue={password} type="password" name="password" onChange={handleInputChange}></input>
                 </div>
 
-                <button onClick={(e)=>handleCreate(user,e)}>Add User</button>
-
+                <button onClick={usertoUpdate ? (e) => handleModifClick(e,user,id) : (e) => handleCreate(user, e)}>Add User</button>
             </form>
         </div>
     )

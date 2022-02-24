@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import AddUser from "./addUser";
 
 
 
-function ModifUser({ url }) {
+function ModifUser({ url , handleModifClick}) {
 
     const [user, setUser] = useState({
         name: "",
@@ -14,7 +14,8 @@ function ModifUser({ url }) {
     });
 
     const { name, email, password } = user;
-    let navigate = useNavigate();
+
+    
 
     let { id } = useParams();
 
@@ -22,36 +23,21 @@ function ModifUser({ url }) {
     React.useEffect(() => {
         axios.get(`${url}/${id}`).then((response) => {
             let updatedUser = {
+                _id : id,
                 name: response.data.name,
                 email: response.data.email,
                 password: response.data.password
             }
+
             setUser((prevState) => { return { ...prevState, ...updatedUser } });
 
         });
     }, []);
 
 
-    const handleClick = (event) => {
-        event.preventDefault();
-        console.log(user)
-        axios.put(`${url}/${id}`, user)
-
-        .then((response) => { console.log(response) });
-    }
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setUser((prevState) => ({
-            ...prevState,
-            [name]: value,
-        
-        }));
-       console.log(name,value)
-    }
-
     return (
 
-        <AddUser usertoUpdate={user}/>
+        <AddUser usertoUpdate={user} url={url} handleModifClick={handleModifClick}/>
 
     )
 }
